@@ -2,6 +2,69 @@
     "use strict";
 
 
+    $(".meanclose").click(function () {
+        console.log(5+5);
+    });
+
+
+    /*------------- preloader js --------------*/
+    function loader() {
+        $(window).on('load', function () {
+            $('#ctn-preloader').addClass('loaded');
+            $("#loading").fadeOut(500);
+            // Una vez haya terminado el preloader aparezca el scroll
+
+            if ($('#ctn-preloader').hasClass('loaded')) {
+                // Es para que una vez que se haya ido el preloader se elimine toda la seccion preloader
+                $('#preloader').delay(900).queue(function () {
+                    $(this).remove();
+                });
+            }
+        });
+    }
+    loader();
+
+    // meanmenu
+    jQuery('#mobile-menu').meanmenu({
+        meanMenuContainer: '.mobile-menu',
+        meanScreenWidth: "992"
+    });
+
+    // js - tilt
+    if ($(".js-tilt").length) {
+        $('.js-tilt').tilt();
+    }
+
+    // Counter
+    var timer = $('.timer');
+    if (timer.length) {
+        timer.appear(function () {
+            timer.countTo({
+                speed: 1500,
+                refreshInterval: 50,
+            });
+        });
+    }
+
+    // Screeshot Active
+    $('#Wrapper-element').RollingSlider({
+        showArea: ".slide-wrap",
+        prev: "#jprev",
+        next: "#jnext",
+        moveSpeed: 400,
+        autoPlay: false,
+        stay: 5000,
+        responsive: [{
+            breakpoint: 767,
+            settings: {
+                dots: false,
+                arrows: false,
+                stay: 1000,
+            }
+        }]
+    });
+
+
 
     // One Page Nav
     var top_offset = $('.header-area').height() - 10;
@@ -140,12 +203,19 @@
     });
 
     //slick-activation
-    $('.responsive').slick({
-        dots: true,
-        infinite: false,
-        speed: 300,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+    $('.blog-active').slick({
+        dots: false,
+        accessibility: true,
+        adaptiveHeight: true,
+        centerMode: true,
+        centerPadding: '0px',
+        infinite: true,
+        speed: 900,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: "<span class='a-left control-c prev-blog slick-prev'><i class='flaticon-right-arrow'></i></span>",
+        nextArrow: "<span class='a-right control-c next-blog slick-prev'><i class='flaticon-right-arrow'></i></span>",
         responsive: [
             {
                 breakpoint: 1024,
@@ -153,21 +223,134 @@
                     slidesToShow: 3,
                     slidesToScroll: 3,
                     infinite: true,
-                    dots: true
+                    dots: false,
+                    autoPlay: true,
+                    arrows: false
                 }
     },
             {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 2
+                    slidesToScroll: 2,
+                    autoPlay: true,
+                    arrows: false
                 }
     },
             {
                 breakpoint: 480,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    autoPlay: true,
+                    arrows: false
+                }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+    });
+
+    //slick-activation
+    $('.testi-active').slick({
+        dots: false,
+        accessibility: false,
+        adaptiveHeight: false,
+        centerMode: false,
+        centerPadding: '0px',
+        infinite: true,
+        speed: 900,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: "<span class='a-left control-c prev-blog slick-prev'><i class='flaticon-right-arrow'></i></span>",
+        nextArrow: "<span class='a-right control-c next-blog slick-prev'><i class='flaticon-right-arrow'></i></span>",
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                    autoPlay: true,
+                    arrows: false
+                }
+    },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoPlay: true,
+                    arrows: false
+                }
+    },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false
+                }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+    });
+
+    //next-post-activation
+    $('.next-post--active').slick({
+        dots: false,
+        accessibility: false,
+        adaptiveHeight: false,
+        centerMode: false,
+        centerPadding: '0px',
+        infinite: true,
+        speed: 900,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: true,
+        prevArrow: "<span class='a-left next-control slick-prev'><i class='flaticon-right-arrow'></i></span>",
+        nextArrow: "<span class='a-right next-control slick-prev'><i class='flaticon-right-arrow'></i></span>",
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                    autoPlay: true,
+                    arrows: false
+                }
+    },
+            {
+                breakpoint: 810,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    autoPlay: true,
+                    arrows: false
+                }
+    },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoPlay: true,
+                    arrows: false
+                }
+    },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false
                 }
     }
     // You can unslick at a given breakpoint now by adding:
@@ -177,16 +360,21 @@
     });
 
 
-    // scrollToTop
-    $.scrollUp({
-        scrollName: 'scrollUp', // Element ID
-        topDistance: '300', // Distance from top before showing element (px)
-        topSpeed: 300, // Speed back to top (ms)
-        animation: 'fade', // Fade, slide, none
-        animationInSpeed: 200, // Animation in speed (ms)
-        animationOutSpeed: 200, // Animation out speed (ms)
-        scrollText: '<i class="icofont icofont-long-arrow-up"></i>', // Text for element
-        activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+    // -------------------- From Bottom to Top Button
+    //Check to see if the window is top if not then display button
+    $(window).on('scroll', function () {
+        if ($(this).scrollTop() > 200) {
+            $('.scroll-top').fadeIn();
+        } else {
+            $('.scroll-top').fadeOut();
+        }
+    });
+    //---------------------- Click event to scroll to top
+    $('.scroll-top').on('click', function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 2000);
+        return false;
     });
 
     // WOW active

@@ -844,7 +844,7 @@
 
 /* Background Color */
 .gray-bg {
-    background: #f7f7fd;
+    background: #f1f1f1;
 }
 
 .white-bg {
@@ -852,7 +852,7 @@
 }
 
 .black-bg {
-    background: #222;
+    background: #171717;
 }
 
 .theme-bg {
@@ -869,15 +869,20 @@
 }
 
 .black-color {
-    color: #222;
+    color: #252525;
 }
 
 .theme-color {
-    color: #222;
+    color: #a730b9;
 }
 
 .primary-color {
     color: #222;
+}
+
+.white-color2 {
+    color: #e2e2e2 !important;
+
 }
 
 /* black overlay */
